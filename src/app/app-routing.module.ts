@@ -1,16 +1,11 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {HomeComponent} from "./home/home.component";
-import {PurchasesComponent} from "./purchases/purchases.component";
-import {CheckoutComponent} from "./checkout/checkout.component";
-import {ContactComponent} from "./contact/contact.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {LoginComponent} from "./login/login.component";
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'purchases', component: PurchasesComponent},
-  {path: 'checkout', component: CheckoutComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: '**', redirectTo: ''},
+  {path: 'home', loadChildren: () => import('./module/layout/layout.module').then(m => m.LayoutModule)},
+  {path: 'login', component: LoginComponent},
+  {path: '**', redirectTo: 'home'},
 ];
 
 @NgModule({

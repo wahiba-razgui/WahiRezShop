@@ -57,7 +57,8 @@
         <div class="col-lg-8 col-md-7 col-12">
           <div class="search-bar-top">
             <div class="search-bar">
-              <div class="nice-select open" tabindex="0"><span class="current">All Category</span>
+              <div class="nice-select" tabindex="0">
+                <span class="current">All Category</span>
                 <ul class="list">
                   <li data-value="All Category" class="option selected focus">All Category</li>
                   <li data-value="watch" class="option">watch</li>
@@ -125,8 +126,8 @@
         <div class="row">
           <div class="col-lg-3">
             <div class="all-category">
-              <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
-              <ul class="main-category">
+              <h3 (click)="toggleCategoriesState()" class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
+              <ul class="main-category" *ngIf="showCategories">
                 <li><a href="#">New Arrivals <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                   <ul class="sub-category">
                     <li><a href="#">accessories</a></li>
