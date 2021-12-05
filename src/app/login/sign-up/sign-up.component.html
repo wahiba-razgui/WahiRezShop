@@ -1,0 +1,50 @@
+<section id="contact-us" class="contact-us login">
+  <div class="container">
+    <div class="contact-head">
+      <div class="align-content-around d-flex justify-content-between row" style="height: 100vh">
+        <div class="form-main" >
+          <div class="title d-flex justify-content-around">
+            <h3>Create account</h3>
+          </div>
+          <form [formGroup]="signUpForm" class="form" style="max-width: 450PX;">
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <label>Your Name<span>*</span></label>
+                  <input name="name" formControlName="username" type="text" placeholder="">
+                  <span *ngIf="!form['username'].valid && isSubmitted" class="error-message">Username is required</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <label>Your Email<span>*</span></label>
+                  <input name="email" formControlName="email" type="email" placeholder="">
+                  <span *ngIf="!form['email'].valid && isSubmitted" class="error-message">Email is required</span>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="form-group">
+                  <label>Your Password<span>*</span></label>
+                  <input name="subject" formControlName="password" type="password" placeholder="">
+                  <span *ngIf="!form['password'].valid && isSubmitted" class="error-message">Password is required</span>
+                </div>
+              </div>
+              <div class="col-lg-12 mt-3">
+                <div class="form-group button d-flex justify-content-around">
+                  <button type="submit" class="btn " (click)="signUp()">Sign in</button>
+                  <p class="loginhere mb-0 position-absolute" style="margin-top: 65px">
+                    Have already an account ? <a routerLink="/sign-in" class="loginhere-link">Login here</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

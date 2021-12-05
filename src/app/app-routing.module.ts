@@ -1,10 +1,12 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from "./login/login.component";
+import {SignInComponent} from "./login/sign-in/sign-in.component";
+import {SignUpComponent} from "./login/sign-up/sign-up.component";
 
 const routes: Routes = [
   {path: 'home', loadChildren: () => import('./module/layout/layout.module').then(m => m.LayoutModule)},
-  {path: 'login', component: LoginComponent},
+  {path: 'sign-in', component: SignInComponent},
+  {path: 'sign-up', component: SignUpComponent},
   {path: '**', redirectTo: 'home'},
 ];
 

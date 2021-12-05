@@ -1,0 +1,18 @@
+.login {
+  background-image: url("../../../assets/images/bg-1.jpg");
+  background-repeat: space;
+  background-size: cover;
+  -moz-background-size: cover;
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -ms-background-size: cover;
+  background-position: center center;
+}
+
+.form-main {
+  background-color: #f8f8f8b8;
+  border-radius: 2%;
+  input {
+    background-color: transparent;
+  }
+}
