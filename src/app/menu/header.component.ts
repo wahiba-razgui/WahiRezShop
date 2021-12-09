@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {TokenStorageService} from "../service/token-storage.service";
 import {Router} from "@angular/router";
-import {RolesEnum} from "../../../../DreamProject/src/app/model/roles.enum";
 import {DEFAULT_ROUTES, MANAGER_ROUTES, USER_ROUTES} from "./routes";
+import {RolesEnum} from "../model/roles.enum";
 
 @Component({
   selector: 'app-header',
