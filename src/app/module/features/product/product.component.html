@@ -1,0 +1,77 @@
+<div class="shopping-cart section">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- Shopping Summery -->
+        <table class="table shopping-summery">
+          <thead>
+          <tr class="main-hading">
+            <th>PRODUCT</th>
+            <th>NAME</th>
+            <th class="text-center">UNIT PRICE</th>
+            <th class="text-center">QUANTITY</th>
+            <th class="text-center">
+              <i href="#addProductModal" data-toggle="modal" (click)="clearAddForm()" class="fa fa-plus-circle"></i>
+            </th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let product of products$ | async">
+            <td class="image" data-title="No"><img [src]="product?.imagePath" alt="#"></td>
+            <td class="product-des" data-title="Description">
+              <p class="product-name"><a href="#">{{product?.title}} : {{product?.category}}</a></p>
+              <p class="product-des">{{product?.description}}</p>
+            </td>
+            <td class="price" data-title="Price"><span>TND {{product?.price}} </span></td>
+            <td class="qty" data-title="Qty"><!-- Input Order -->
+              <span>{{product?.quantity}}</span>
+              <!--/ End Input Order -->
+            </td>
+            <td class="action" data-title="Remove">
+              <a href="#editProductModal" (click)="setEditForm(product)" class="edit" data-toggle="modal"><i class="fa fa-edit"></i></a>
+              <a href="#deleteProductModal" (click)="deletedProduct = product" class="delete" data-toggle="modal"><i class="ti-trash remove-icon"></i></a>
+            </td>
+
+          </tr>
+          </tbody>
+        </table>
+        <!--/ End Shopping Summery -->
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Add Modal HTML -->
+<div id="addProductModal" class="modal fade" tabindex="-1" aria-hidden="true">
+  <app-product-form [form]="addProductForm"
+                    [isActionLaunched]="isSubmitted"
+                    [action]="'ADD'"
+                    (registerHotel)="addProduct()"></app-product-form>
+</div>
+<!-- Edit Modal HTML -->
+<div id="editProductModal" class="modal fade" tabindex="-1" aria-hidden="true">
+  <app-product-form [form]="updateProductForm"
+                    [isActionLaunched]="isSubmitted"
+                    [action]="'EDIT'"
+                    (registerHotel)="updateProduct()"></app-product-form>
+</div>
+<!-- Delete Modal HTML -->
+<div id="deleteProductModal" class="modal fade" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <form>
+        <div class="modal-header">
+          <h4 class="modal-title">Delete Hotel</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete these Records?</p>
+          <p class="text-warning"><small>This action cannot be undone.</small></p>
+        </div>
+        <div class="modal-footer">
+          <input type="button" class="btn btn-default" (click)="deletedProduct = null" data-dismiss="modal" value="Cancel">
+          <input type="submit" class="btn btn-danger" (click)="deleteProduct()" value="Delete">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -21,7 +21,7 @@
               <li><i class="ti-location-pin"></i> Store location</li>
               <li><i class="ti-alarm-clock"></i> <a href="#">Daily deal</a></li>
               <li><i class="ti-user"></i> <a href="#">My account</a></li>
-              <li><i class="ti-power-off"></i><a routerLink="/sign-in">Login</a></li>
+              <li><i class="ti-power-off"></i><a (click)="this.roles.length ? logOut($event) : login($event)">{{this.roles.length ? 'Logout' : 'Login'}}</a></li>
             </ul>
           </div>
           <!-- End Top Right -->
@@ -34,10 +34,6 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-2 col-md-2 col-12">
-          <!-- Logo -->
-          <div class="logo">
-            <a href="index.html"><img src="images/logo.png" alt="logo"></a>
-          </div>
           <!--/ End Logo -->
           <!-- Search Form -->
           <div class="search-top">
@@ -125,7 +121,7 @@
       <div class="cat-nav-head">
         <div class="row">
           <div class="col-lg-3">
-            <div class="all-category">
+            <div *ngIf="null" class="all-category">
               <h3 (click)="toggleCategoriesState()" class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>CATEGORIES</h3>
               <ul class="main-category" *ngIf="showCategories">
                 <li><a href="#">New Arrivals <i class="fa fa-angle-right" aria-hidden="true"></i></a>
@@ -200,6 +196,11 @@
                   <div class="nav-inner">
                     <ul class="nav main-menu menu navbar-nav">
                       <li class="active"><a routerLink="">Home</a></li>
+                      <li *ngFor="let menuItem of menuItems" >
+                        <a  [routerLink]="[menuItem.path]">
+                          {{menuItem.title}}
+                        </a>
+                      </li>
                       <li><a routerLink="purchases">Cart</a></li>
                       <li><a routerLink="checkout">Checkout</a></li>
                       <li><a routerLink="contact">Contact Us</a></li>

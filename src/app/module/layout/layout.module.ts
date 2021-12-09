@@ -20,7 +20,7 @@ import {ContactComponent} from "./component/contact/contact.component";
   ],
   imports: [
     LayoutModuleRouting,
-    CommonModule,
+    CommonModule
   ]
 })
 export class LayoutModule { }

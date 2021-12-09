@@ -8,6 +8,9 @@ import {SignUpComponent} from "./login/sign-up/sign-up.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import {ToastModule} from "primeng/toast";
+import {MessageService} from "primeng/api";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {authInterceptorProviders} from "./service/auth.interceptor";
 
 @NgModule({
   declarations: [
@@ -20,9 +23,10 @@ import {ToastModule} from "primeng/toast";
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastModule
+    ToastModule,
+    BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [...authInterceptorProviders, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

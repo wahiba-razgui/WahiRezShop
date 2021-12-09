@@ -1,0 +1,46 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <form *ngIf="productForm" [formGroup]="productForm">
+      <div class="modal-header">
+        <h4 class="modal-title">{{ action === 'ADD' ? 'Add' : 'Update'}} Product</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Title</label>
+          <input type="text" class="form-control" formControlName="title" required>
+          <span *ngIf="!productForm.controls['title'].valid && isSubmitted" class="error-message">Title is required</span>
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <input type="text" class="form-control" formControlName="description">
+        </div>
+        <div class="form-group">
+          <label>Category</label>
+          <input type="text" class="form-control" formControlName="category">
+        </div>
+        <div class="form-group">
+          <label>Price</label>
+          <div class="price">
+            <input type="number" class="form-control" formControlName="price" required> <span>TND</span>
+          </div>
+          <span *ngIf="!productForm.controls['price'].valid && isSubmitted" class="error-message">Price is required</span>
+        </div>
+        <div class="form-group">
+          <label>Quantity</label>
+          <div class="price">
+            <input type="number" class="form-control" formControlName="quantity" required>
+          </div>
+          <span *ngIf="!productForm.controls['quantity'].valid && isSubmitted" class="error-message">Quantity is required</span>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <input type="button" class="btn btn-default" data-dismiss="modal" value="Cancel">
+        <input type="submit" class="btn btn-success" (click)="saveTool()"
+               value="{{ action === 'ADD' ? 'Add' : 'Update'}}">
+      </div>
+    </form>
+  </div>
+</div>
+
+

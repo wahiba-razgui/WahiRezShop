@@ -9,8 +9,8 @@ import {MessageService} from 'primeng/api';
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
   styleUrls: ['./sign-in.component.scss'],
-  providers: [MessageService]
 })
+
 export class SignInComponent implements OnInit {
   public signInForm: FormGroup = {} as FormGroup;
   private roles: string[] = [];

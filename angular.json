@@ -67,7 +67,8 @@
               "src/assets/js/scrollup.js",
               "src/assets/js/onepage-nav.min.js",
               "src/assets/js/easing.js",
-              "src/assets/js/active.js"
+              "src/assets/js/active.js",
+              "node_modules/chart.js/dist/Chart.js"
             ]
           },
           "configurations": {

@@ -19,11 +19,11 @@ export class UserService {
     return this.http.get(AUTH_API, httpOptions);
   }
 
-  public deleteById(id: string): Observable<any> {
+  public deleteById(id: string | undefined): Observable<any> {
     return this.http.delete(AUTH_API + `/${id}`, httpOptions);
   }
 
-  public update(id: string, username: string, email: string, password: string, roles: string[] = []): Observable<any> {
+  public update(id: string | undefined, username: string, email: string, password: string, roles: string[] = []): Observable<any> {
     return this.http.put(AUTH_API, {
       username,
       email,
