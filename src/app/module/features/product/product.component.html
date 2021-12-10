@@ -16,8 +16,8 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let product of products$ | async">
-            <td class="image" data-title="No"><img [src]="product?.imagePath" alt="#"></td>
+          <tr *ngFor="let product of products$ | async; let i = index">
+            <td class="image" data-title="No"><img [src]="'assets/images/products/p'+i+'.jpg'" alt="#"></td>
             <td class="product-des" data-title="Description">
               <p class="product-name"><a href="#">{{product?.title}} : {{product?.category}}</a></p>
               <p class="product-des">{{product?.description}}</p>
